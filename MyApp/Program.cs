@@ -1,12 +1,15 @@
 ﻿// See https://aka.ms/new-console-template for more information
 Console.WriteLine("Hello, World!, Nico");
 
-Cliente c1 = new Cliente();
-Cliente c2 = new Cliente("Nicolas Magro", "La Arboleda", "3815791342", "Casita");
-
-c1.listarCliente();
-c2.listarCliente();
-
 Pedido p1 = new Pedido(1, "Caja Rota", "Nicolas Magro", "La Arboleda", "3815791342", "Casita", "En viaje");
 
-p1.ListarPedido();
+Pedido p2 = new Pedido(2, "Pesado", "Pedro Pepito", "Recoleta", "3815791343", "Depto 4A", "Entregado");
+
+Cadete c = new Cadete(1, "Angel", "FELE", "3815791342");
+
+c.agregarPedido(p1);
+c.agregarPedido(p2);
+
+c.listarPedidos();
+
+System.Console.WriteLine("Jornal a cobrar: $" + c.jornalACobrar());

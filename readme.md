@@ -29,6 +29,7 @@ _Metodos de la clase Cadetes_
 
 JornalACobrar();
 ListarPedidos();
+AgregarPedido(Pedido p);
 
 **Teniendo en cuenta los principios de abstracción y ocultamiento, que atributos,**
 **propiedades y métodos deberían ser públicos y cuáles privados.**
