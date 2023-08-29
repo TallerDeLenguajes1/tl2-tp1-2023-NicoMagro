@@ -41,6 +41,11 @@ public class Cadete
         return this.telefono;
     }
 
+    public List<Pedido> getPedidos()
+    {
+        return this.pedidos;
+    }
+
     public float jornalACobrar()
     {
         float total = 0;

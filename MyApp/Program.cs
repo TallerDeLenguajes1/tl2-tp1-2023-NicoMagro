@@ -10,6 +10,20 @@ Cadete c = new Cadete(1, "Angel", "FELE", "3815791342");
 c.agregarPedido(p1);
 c.agregarPedido(p2);
 
-c.listarPedidos();
+//c.listarPedidos();
 
 System.Console.WriteLine("Jornal a cobrar: $" + c.jornalACobrar());
+
+Cadeteria cadeteria1 = new Cadeteria("Cdetes buenos", "4750843");
+
+cadeteria1.agregarCadete(c);
+
+cadeteria1.informe();
+
+cadeteria1.eliminarCadete(c);
+
+cadeteria1.informe();
+
+cadeteria1.agregarCadete(c);
+
+cadeteria1.eliminarPedidoACadete(p1, c);
