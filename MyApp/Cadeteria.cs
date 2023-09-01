@@ -82,7 +82,7 @@ public class Cadeteria
         else
         {
             c.agregarPedido(this.pedidos[0]);
-            c.pedidos.RemoveAt(0);
+            this.pedidos.RemoveAt(0);
         }
     }
 
@@ -110,5 +110,11 @@ public class Cadeteria
         {
             System.Console.WriteLine("El cadete no pertenece a esta cadeteria.");
         }
+    }
+
+    public void CrearPedido(int nro, string Observacion, string nombre, string direccion, string telefono, string datosReferenciaDireccion, string estado)
+    {
+        this.pedidos.Add(new Pedido(nro, Observacion, nombre, direccion, telefono, datosReferenciaDireccion, estado));
+        System.Console.WriteLine("Se agrego un nuevo pedido que no tiene ningun cadete para su entrega");
     }
 }

@@ -60,3 +60,5 @@ cadeteria1.informe();
 cadeteria1.agregarCadete(c2);
 
 cadeteria1.eliminarPedidoACadete(p1, c1);
+
+cadeteria1.CrearPedido(3, "Caja de cigarrillos", "Diana Park", "Lomas de Zamora", "3817634687", "Esquina Av.Libertador y Chacabuco", "ENVIO");
