@@ -37,28 +37,15 @@ while ((linea = archivo1.ReadLine()) != null)
 }
 
 
-Pedido p1 = new Pedido(1, "Caja Rota", "Nicolas Magro", "La Arboleda", "3815791342", "Casita", "En viaje");
+// Pedido p1 = new Pedido(1, "Caja Rota", "Nicolas Magro", "La Arboleda", "3815791342", "Casita", "En viaje");
 
-Pedido p2 = new Pedido(2, "Pesado", "Pedro Pepito", "Recoleta", "3815791343", "Depto 4A", "Entregado");
-
-c1.agregarPedido(p1);
-c1.agregarPedido(p2);
-
-//c.listarPedidos();
-
-System.Console.WriteLine("Jornal a cobrar: $" + c1.jornalACobrar());
+// Pedido p2 = new Pedido(2, "Pesado", "Pedro Pepito", "Recoleta", "3815791343", "Depto 4A", "Entregado");
 
 
-cadeteria1.agregarCadete(c1);
+AccesoADatos accesoCadeteria = new AccesoCSV("/Users/angelnicolasmagro/Documents/GitHub/tl2-tp1-2023-NicoMagro/MyApp/cadeteria.csv");
 
-cadeteria1.informe();
+accesoCadeteria.leerCadeteria();
 
-cadeteria1.eliminarCadete(c1);
+AccesoADatos accesoCadete = new AccesoCSV("/Users/angelnicolasmagro/Documents/GitHub/tl2-tp1-2023-NicoMagro/MyApp/cadetes.csv");
 
-cadeteria1.informe();
-
-cadeteria1.agregarCadete(c2);
-
-cadeteria1.eliminarPedidoACadete(p1, c1);
-
-cadeteria1.CrearPedido(3, "Caja de cigarrillos", "Diana Park", "Lomas de Zamora", "3817634687", "Esquina Av.Libertador y Chacabuco", "ENVIO");
+accesoCadete.leerCadete();
