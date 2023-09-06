@@ -36,7 +36,7 @@ public class Cadeteria
     public void agregarCadete(Cadete c)
     {
         this.Cadetes.Add(c);
-        System.Console.WriteLine("Cadete Agregado.");
+        System.Console.WriteLine($"Cadete Agregado a la cadeteria {this.Nombre}.");
     }
 
     public void eliminarCadete(Cadete c)
@@ -146,5 +146,12 @@ public class Cadeteria
                 }
             }
         }
+    }
+
+    public void listarCadeteria()
+    {
+        System.Console.WriteLine("======== CADETERIA ========");
+        System.Console.WriteLine($"Nombre: {this.Nombre}");
+        System.Console.WriteLine($"Telefono: {this.Telefono}");
     }
 }

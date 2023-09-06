@@ -37,4 +37,13 @@ public class Cadete
     {
         return this.telefono;
     }
+
+    public void listarCadete()
+    {
+        System.Console.WriteLine("------CADETE------");
+        System.Console.WriteLine($"ID: {this.id}");
+        System.Console.WriteLine($"Nombre: {this.nombre}");
+        System.Console.WriteLine($"Direccion: {this.direccion}");
+        System.Console.WriteLine($"Telefono: {this.telefono}");
+    }
 }
