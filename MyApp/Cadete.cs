@@ -2,48 +2,48 @@ using System.Globalization;
 
 public class Cadete
 {
-    public int id;
-    private string nombre;
-    private string direccion;
-    private string telefono;
+    public int Id { get; set; }
+    public string Nombre { get; set; }
+    public string Direccion { get; set; }
+    public string Telefono { get; set; }
 
     public Cadete()
     {
-        this.id = 0;
-        this.nombre = "";
-        this.direccion = "";
-        this.telefono = "";
+        this.Id = 0;
+        this.Nombre = "";
+        this.Direccion = "";
+        this.Telefono = "";
     }
 
     public Cadete(int id, string nombre, string direccion, string telefono)
     {
-        this.id = id;
-        this.nombre = nombre;
-        this.direccion = direccion;
-        this.telefono = telefono;
+        this.Id = id;
+        this.Nombre = nombre;
+        this.Direccion = direccion;
+        this.Telefono = telefono;
     }
 
     public string getNombre()
     {
-        return this.nombre;
+        return this.Nombre;
     }
 
     public string getDireccion()
     {
-        return this.direccion;
+        return this.Direccion;
     }
 
     public string getTelefono()
     {
-        return this.telefono;
+        return this.Telefono;
     }
 
     public void listarCadete()
     {
         System.Console.WriteLine("------CADETE------");
-        System.Console.WriteLine($"ID: {this.id}");
-        System.Console.WriteLine($"Nombre: {this.nombre}");
-        System.Console.WriteLine($"Direccion: {this.direccion}");
-        System.Console.WriteLine($"Telefono: {this.telefono}");
+        System.Console.WriteLine($"ID: {this.Id}");
+        System.Console.WriteLine($"Nombre: {this.getNombre()}");
+        System.Console.WriteLine($"Direccion: {this.getDireccion()}");
+        System.Console.WriteLine($"Telefono: {this.getTelefono()}");
     }
 }

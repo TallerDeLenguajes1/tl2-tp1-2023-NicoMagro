@@ -5,23 +5,15 @@ using System.Text.Json.Serialization;
 using System.Text.Json;
 
 
-public class AccesoADatos
+public abstract class AccesoADatos
 {
     public AccesoADatos()
     {
     }
 
-    public virtual List<Cadete> leerCadete()
-    {
-        System.Console.WriteLine("Metodo por defecto de lectura.");
-        return new List<Cadete>();
-    }
+    public abstract List<Cadete> leerCadete();
 
-    public virtual List<Cadeteria> leerCadeteria()
-    {
-        System.Console.WriteLine("Metodo por defecto de lectura.");
-        return new List<Cadeteria>();
-    }
+    public abstract Cadeteria leerCadeteria();
 }
 
 public class AccesoCSV : AccesoADatos
@@ -31,7 +23,7 @@ public class AccesoCSV : AccesoADatos
 
     }
 
-    public override List<Cadeteria> leerCadeteria()
+    public override Cadeteria leerCadeteria()
     {
         try
         {
@@ -45,7 +37,7 @@ public class AccesoCSV : AccesoADatos
 
                 if (encabezados != null)
                 {
-                    var listaCadeteria = new List<Cadeteria>();
+                    var cadeter = new Cadeteria();
                     while (!reader.EndOfStream)
                     {
                         var linea = reader.ReadLine();
@@ -54,7 +46,8 @@ public class AccesoCSV : AccesoADatos
                         {
                             var cadeteria = new Cadeteria(valores[0], valores[1]);
 
-                            listaCadeteria.Add(cadeteria);
+
+                            cadeter = cadeteria;
 
                             Console.WriteLine($"Cadeteria: {valores[0]}, Telefono: {valores[1]}");
                         }
@@ -64,19 +57,19 @@ public class AccesoCSV : AccesoADatos
                         }
                     }
                     System.Console.WriteLine("Cadeteria cargada correctamente.");
-                    return listaCadeteria;
+                    return cadeter;
                 }
                 else
                 {
                     System.Console.WriteLine("La cadeteria no se cargo correctamente.");
-                    return new List<Cadeteria>();
+                    return new Cadeteria();
                 }
             }
         }
         catch (FileNotFoundException)
         {
             Console.WriteLine($"El archivo CSV en la ruta '{"/Users/angelnicolasmagro/Documents/GitHub/tl2-tp1-2023-NicoMagro/MyApp/cadeteria.csv"}' no fue encontrado.");
-            return new List<Cadeteria>();
+            return new Cadeteria();
         }
     }
 
@@ -138,13 +131,13 @@ public class AccesoJSON : AccesoADatos
 
     }
 
-    public override List<Cadeteria> leerCadeteria()
+    public override Cadeteria leerCadeteria()
     {
         try
         {
-            var json = File.ReadAllText("/Users/angelnicolasmagro/Documents/GitHub/tl2-tp1-2023-NicoMagro/MyApp/cadeteria.json");
+            string json = File.ReadAllText("cadeteria.json");
             //Deserealizo el archivo
-            List<Cadeteria> cadeteria = JsonSerializer.Deserialize<List<Cadeteria>>(json);
+            Cadeteria cadeteria = JsonSerializer.Deserialize<Cadeteria>(json);
 
             Console.WriteLine("Datos desde JSON:");
             Console.WriteLine(json);
@@ -155,7 +148,7 @@ public class AccesoJSON : AccesoADatos
         catch (FileNotFoundException)
         {
             System.Console.WriteLine($"El archivo CSV en la ruta '{"/Users/angelnicolasmagro/Documents/GitHub/tl2-tp1-2023-NicoMagro/MyApp/cadeteria.json"}' no fue encontrado.");
-            return new List<Cadeteria>();
+            return new Cadeteria();
         }
     }
 
@@ -163,7 +156,7 @@ public class AccesoJSON : AccesoADatos
     {
         try
         {
-            var json = File.ReadAllText("/Users/angelnicolasmagro/Documents/GitHub/tl2-tp1-2023-NicoMagro/MyApp/cadetes.json");
+            var json = File.ReadAllText("cadetes.json");
             //Deserealizo el archivo en una lista de cadetes
             List<Cadete> cadetes = JsonSerializer.Deserialize<List<Cadete>>(json);
             Console.WriteLine("Datos desde JSON:");

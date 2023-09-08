@@ -42,7 +42,7 @@ public class Pedido
 
     public int getIdCadete()
     {
-        return this.cadete.id;
+        return this.cadete.Id;
     }
 
     public void ListarPedido()

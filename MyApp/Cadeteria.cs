@@ -2,10 +2,10 @@ using System.Linq;
 
 public class Cadeteria
 {
-    private string Nombre;
-    private string Telefono;
-    private List<Pedido> pedidos;
-    private List<Cadete> Cadetes;
+    public string Nombre { get; set; }
+    public string Telefono { get; set; }
+    public List<Pedido> pedidos { get; set; }
+    public List<Cadete> Cadetes { get; set; }
 
     public Cadeteria()
     {
@@ -139,7 +139,7 @@ public class Cadeteria
             {
                 foreach (Cadete cad in this.Cadetes)
                 {
-                    if (cad.id == idCad)
+                    if (cad.Id == idCad)
                     {
                         p.asignarCadete(cad);
                     }

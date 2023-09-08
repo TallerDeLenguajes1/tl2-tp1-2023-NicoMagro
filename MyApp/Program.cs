@@ -6,7 +6,7 @@ Console.WriteLine("Hello, World!, Nico");
 var accesoCSV = new AccesoCSV();
 var accesoJSON = new AccesoJSON();
 
-var listaCadeteria = new List<Cadeteria>();
+var listaCadeteria = new Cadeteria();
 var listaCadetes = new List<Cadete>();
 
 PreguntaCargaArchivos();
@@ -30,6 +30,7 @@ void PreguntaCargaArchivos()
 
         default:
             Console.WriteLine("Ingresa un numero valido.");
+            PreguntaCargaArchivos();
             break;
     }
 
@@ -72,32 +73,20 @@ void agregarCadeteCadeteria()
         System.Console.WriteLine("\n");
     }
 
-    System.Console.WriteLine("======== LISTADO DE CADETERIAS ========");
-    foreach (Cadeteria c in listaCadeteria)
-    {
-        c.listarCadeteria();
-        System.Console.WriteLine("\n");
-    }
+    System.Console.WriteLine("======== MOSTRANDO CADETERIA ========");
+
+    listaCadeteria.listarCadeteria();
 
     System.Console.WriteLine("Elige el id de algun cadete para inscribirlo en la cadeteria: ");
     var id_cadete = int.Parse(Console.ReadLine());
-
-    System.Console.WriteLine("Elige el nombre de la cadeteria a la cual quieres inscribir al cadete:");
-    var nombre_cadeteria = Console.ReadLine();
 
     try
     {
         foreach (Cadete c in listaCadetes)
         {
-            if (c.id == id_cadete)
+            if (c.Id == id_cadete)
             {
-                foreach (Cadeteria kdtria in listaCadeteria)
-                {
-                    if (kdtria.getNombre() == nombre_cadeteria)
-                    {
-                        kdtria.agregarCadete(c);
-                    }
-                }
+                listaCadeteria.agregarCadete(c);
             }
         }
     }
@@ -105,5 +94,15 @@ void agregarCadeteCadeteria()
     {
         System.Console.WriteLine("No se encontraron datos que coincidan con los datos ingresados.");
         throw;
+    }
+    System.Console.WriteLine("Desea ingresar otro cadete a la cadeteria?\n 1 -> SI; 2 -> NO\n");
+    string r = Console.ReadLine();
+    if (r == "1")
+    {
+        agregarCadeteCadeteria();
+    }
+    else
+    {
+        InicioInterfaz();
     }
 }

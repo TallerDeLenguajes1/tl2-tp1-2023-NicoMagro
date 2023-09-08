@@ -1,20 +1,20 @@
 [
     {
-        "id": 1,
-        "nombre": "Nombre Cadete 1",
-        "direccion": "Dirección Cadete 1",
-        "telefono": "Teléfono Cadete 1"
+        "Id": 1,
+        "Nombre": "Nombre Cadete 1",
+        "Direccion": "Dirección Cadete 1",
+        "Telefono": "Teléfono Cadete 1"
     },
     {
-        "id": 2,
-        "nombre": "Nombre Cadete 2",
-        "direccion": "Dirección Cadete 2",
-        "telefono": "Teléfono Cadete 2"
+        "Id": 2,
+        "Nombre": "Nombre Cadete 2",
+        "Direccion": "Dirección Cadete 2",
+        "Telefono": "Teléfono Cadete 2"
     },
     {
-        "id": 3,
-        "nombre": "Nombre Cadete 3",
-        "direccion": "Dirección Cadete 3",
-        "telefono": "Teléfono Cadete 3"
+        "Id": 3,
+        "Nombre": "Nombre Cadete 3",
+        "Direccion": "Dirección Cadete 3",
+        "Telefono": "Teléfono Cadete 3"
     }
 ]
